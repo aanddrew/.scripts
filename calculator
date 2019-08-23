@@ -1,0 +1,2 @@
+CALCULATION = "$(echo "" | dmenu)"
+echo "print($'CALCULATION'})" | python | dmenu

@@ -1,0 +1,7 @@
+DRIVE="$(lsblk | grep disk | awk '{print $1, $4}' | dmenu | awk '{print $1;}')"
+#echo "${DRIVE}"
+
+PART="$(lsblk | grep "${DRIVE}" | grep part | awk '{print substr($1,3,length($1)), $4}' | dmenu | awk '{print $1;}')"
+
+mkdir /mnt/"${PART}"
+mount /dev/"${PART}" /mnt/"${PART}"
